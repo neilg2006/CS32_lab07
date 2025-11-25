@@ -1,6 +1,8 @@
 // WordCount.cpp
 
 #include "WordCount.h"
+#include <sstream>     
+#include <locale>
 
 using namespace std;
 
@@ -100,31 +102,6 @@ bool WordCount::isWordChar(char c) {
 	return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
 }
 
-std::string WordCount::makeValidWord(std::string word) {
-	std::string result = "";
-	
-	for (size_t i = 0; i < word.size(); i++) {
-		char c = word[i];
-		if (isWordChar(c) || c == '-' || c == '\'') {
-			result += c;
-		}
-	}
-
-	while (!result.empty() && !isWordChar(result[0])) {
-		result = result.substr(1);
-	}
-	while (!result.empty() && !isWordChar(result[result.size() - 1])) {
-		result = result.substr(0, result.size() - 1);
-	}
-	
-	for (size_t i = 0; i < result.size(); i++) {
-		if (result[i] >= 'A' && result[i] <= 'Z') {
-			result[i] = result[i] - 'A' + 'a';
-		}
-	}
-	
-	return result;
-}
 
 std::string WordCount::makeValidWord(std::string word) {
 	size_t first = word.find_first_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");

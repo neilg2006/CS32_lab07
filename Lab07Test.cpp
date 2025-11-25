@@ -80,7 +80,7 @@ void testDumpWordsSortedByWord() {
         "cat,1\n"
         "a,1\n";
 
-    ASSERT_EQUALS(expected, ss.str(), "Dump by Word Descending");
+    ASSERT_EQUALS(expected, ss.str());
 }
 
 
@@ -103,7 +103,7 @@ void testDumpWordsSortedByOccurence() {
         "banana,2\n"
         "orange,2\n";
 
-    ASSERT_EQUALS(expected, ss.str(), "Dump by Occurence Ascending with Word Tiebreaker");
+    ASSERT_EQUALS(expected, ss.str());
 }
 
 
